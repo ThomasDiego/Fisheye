@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<!--Ajouter lang attribute-->
+<html lang="fr">
+
+<head>
+  <link href="css/style.css" rel="stylesheet" type="text/css" />
+  <link href="css/photographer.css" rel="stylesheet" type="text/css" />
+  <meta charset="utf-8">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <title>Fisheye - photographe </title>
+</head>
+
+<body>
+  <header>
+    <a href="./index.html"><img src="assets/images/logo.png" alt="Fisheye - photographe" class="logo" /></a>
+  </header>
+  <main id="main">
+    <div class="photograph-header">
+    </div>
+    <div class="mediasFilter">
+      <div class="filterLeft">Trier par</div>
+      <div class="filterRight">
+        <div class="filterDropdown">
+          <div class="filterTitle">Popularité</div>
+          <hr>
+          <div class="filterOther" onclick="filter()">Titre</div>
+        </div>
+      </div>
+    </div>
+    <div class="media-section"></div>
+    <div class="mediaStats">
+      <div class="mediaStatsLeft">
+        <div class="mediaStatsCount"></div>
+        <em class="mediaStatsHeart fas fa-heart"></em>
+      </div>
+      <div class="mediaStatsRight">
+        111/jours
+      </div>
+    </div>
+  </main>
+  <div id="contact_modal">
+    <div class="modal">
+      <div class="modalHeader">
+        <h2 class="contactTitle">Contactez-moi</h2>
+        <img src="assets/icons/close.svg" alt="Fermer la modal" onclick="closeModal()" />
+      </div>
+      <form>
+        <div class="contact">
+          <!-- LABEL ET INPUT pour Prenom, nom, mail, votre message-->
+          <label for="firstname">Prénom</label>
+          <input type="text" id="firstname" name="firstname" placeholder="Votre prénom" required>
+          <!--label input pour Nom-->
+          <label for="lastname">Nom</label>
+          <input type="text" id="lastname" name="lastname" placeholder="Votre nom" required>
+          <!--label input pour email-->
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="Votre email" required>
+          <!--label input pour message-->
+          <label for="message">Votre message</label>
+          <textarea class="mymessage" id="message" name="message" placeholder="Votre message" required></textarea>
+        </div>
+        <button class="contact_button">Envoyer</button>
+      </form>
+    </div>
+  </div>
+  <!-- LightBox -->
+  <div class="lightBox">
+    <div class="lightBoxContainer">
+      <div class="lightBoxLeft">
+        <div class="lightBoxPrevious" onclick="arrowMedia('previous')"><em
+            class="buttonLightBox fa-solid fa-chevron-left"></em></div>
+      </div>
+
+      <div class="lightBoxCenter">
+        <div class="lightBoxImage"></div>
+        <div class="lightBoxTitle">test</div>
+      </div>
+
+
+      <div class="lightBoxRight">
+        <div class="lightBoxClose" onclick="closeLightBox()"><em class="buttonLightBox fa-solid fa-xmark"></em></div>
+        <div class="lightBoxNext" onclick="arrowMedia('next')"><em
+            class="buttonLightBox fa-solid fa-chevron-right"></em></div>
+        <div class="lightBoxNothing"><em class="buttonLightBox transparent fa-solid fa-chevron-right"></em></div>
+      </div>
+    </div>
+  </div>
+  <script src="/scripts/pages/photographer.js"></script>
+  <script src="/scripts/factories/media.js"></script>
+  <script src="/scripts/utils/contactForm.js"></script>
+</body>
+
+</html>
