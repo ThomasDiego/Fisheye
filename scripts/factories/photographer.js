@@ -4,6 +4,19 @@ function photographerFactory(data) {
     const picture = `assets/photographers/${portrait}`;
     const altPicture = `Portrait de ${name}`;
 
+    function getUserHeaderPhotographerDom() {
+        const html = `
+        <div class="leftHeader">
+          <h2 class="namePhotographer">${name}</h2>
+          <div class="cityPhotographer">${city}</div>
+          <div class="taglinePhotographer">${tagline}</div>
+        </div>
+        <div class="centerHeader"><button class="contact_button" onclick="displayModal()">Contactez-moi</button></div>
+        <div class="rightHeader"><img src="${picture}" alt="${altPicture}"
+            class="imgHeader"></div>
+        `;
+        return html;
+    }
     function getUserCardDOM() {
         const article = document.createElement('article');
         const img = document.createElement('img');
@@ -45,5 +58,5 @@ function photographerFactory(data) {
         article.appendChild(price2);
         return (article);
     }
-    return { name, picture, id, getUserCardDOM }
+    return { name, picture, id, getUserCardDOM, getUserHeaderPhotographerDom }
 }

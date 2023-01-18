@@ -327,16 +327,15 @@ form input {
     cursor: pointer;
 }
 
-.filterDropdown>hr {
-    display: none;
-}
-
-.filterOther {
-    display: none;
-}
-
 .filterTitle {
     background-image: url(../assets/icons/chevron-down.svg);
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: 20px;
+}
+
+.filterTitleUp {
+    background-image: url(../assets/icons/chevron-up.svg);
     background-repeat: no-repeat;
     background-position: right;
     background-size: 20px;
@@ -376,4 +375,13 @@ form input {
     text-align: left;
     margin: 0;
 
+}
+
+/* mediaCard add focus outline */
+.mediaCard{
+    padding:5px;
+}
+*:focus {
+    outline: 3px solid #901C1C;
+    border-radius: 5px;
 }

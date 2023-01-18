@@ -24,10 +24,8 @@
     <div class="mediasFilter">
       <div class="filterLeft">Trier par</div>
       <div class="filterRight">
-        <div class="filterDropdown">
-          <div class="filterTitle">Popularité</div>
-          <hr>
-          <div class="filterOther" onclick="filter()">Titre</div>
+        <div class="filterDropdown" tabindex="0">
+          <div class="filterTitle" onclick="getFilters()">Date</div>
         </div>
       </div>
     </div>
@@ -63,7 +61,7 @@
           <label for="message">Votre message</label>
           <textarea class="mymessage" id="message" name="message" placeholder="Votre message" required></textarea>
         </div>
-        <button class="contact_button">Envoyer</button>
+        <button class="contact_button contact_submit">Envoyer</button>
       </form>
     </div>
   </div>
@@ -89,8 +87,9 @@
       </div>
     </div>
   </div>
-  <script src="/scripts/pages/photographer.js"></script>
-  <script src="/scripts/factories/media.js"></script>
+  <script src="/scripts/pages/pho.js"></script>
+  <script src="/scripts/factories/medias.js"></script>
+  <script src="/scripts/factories/photographer.js"></script>
   <script src="/scripts/utils/contactForm.js"></script>
 </body>
 
