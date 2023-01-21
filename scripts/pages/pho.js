@@ -79,35 +79,36 @@ function like(id) {
 }
 function updateTotalLikesDiv() {
     const totalLikes = mediasList.reduce((total, media) => total + media.likes, 0);
-    document.querySelector(".mediaStatsRight").innerHTML = totalLikes + "/jours";
+    document.querySelector(".mediaStatsRight").innerHTML = totalLikes + "€ / jour";
 }
 
-function getFilters() {
-    document.querySelector(".filterDropdown").innerHTML =
-        `
-    <div>
-    <div class="filterTitleUp" onclick="filter('Date')">Date</div>
-    <hr>
-    <div class="filterOther" onclick="filter('Popularité')">Popularité</div>
-    <hr>
-    <div class="filterOther" onclick="filter('Titre')">Titre</div>
-    </div>
-    `;
-}
-
-function filter(filter) {
-    document.querySelector(".filterDropdown").innerHTML = `<div class='filterTitle' onclick="getFilters()">${filter}</div>`;
-    if (filter == "Popularité") {
-        mediasList.sort((a, b) => b.likes - a.likes);
-    }
-    else if (filter == "Date") {
-        mediasList.sort((a, b) => b.date - a.date);
-    }
-    else if (filter == "Titre") {
-        mediasList.sort((a, b) => a.title.localeCompare(b.title));
-    }
-    displayMedias(mediasList);
-}
+document.querySelectorAll(".filterOption").forEach((filterOption) => {
+    filterOption.addEventListener("click", function () {
+        const filter = filterOption.getAttribute("data-filter");
+        if (filter == "top") {
+            mediasList.sort((a, b) => b.likes - a.likes);
+            //mettre le filtre cliqué en premier dans la liste
+            const topFilter = document.querySelector(".filterOption[data-filter='top']");
+            const filterRight = document.querySelector(".filterRight");
+            filterRight.insertBefore(topFilter, filterRight.firstChild);
+        }
+        else if (filter == "date") {
+            mediasList.sort((a, b) => b.date - a.date);
+            //mettre le filtre cliqué en premier dans la liste
+            const dateFilter = document.querySelector(".filterOption[data-filter='date']");
+            const filterRight = document.querySelector(".filterRight");
+            filterRight.insertBefore(dateFilter, filterRight.firstChild);
+        }
+        else if (filter == "title") {
+            mediasList.sort((a, b) => a.title.localeCompare(b.title));
+            //mettre le filtre cliqué en premier dans la liste
+            const titleFilter = document.querySelector(".filterOption[data-filter='title']");
+            const filterRight = document.querySelector(".filterRight");
+            filterRight.insertBefore(titleFilter, filterRight.firstChild);
+        }
+        displayMedias(mediasList);
+    });
+});
 
 function arrowMedia(action) {
     if (document.querySelector(".lightBox").style.display == "none" || document.querySelector(".lightBox").style.display == "") {
@@ -147,8 +148,3 @@ document.addEventListener("keydown", function (event) {
     }
 });
 getPhotographInfos();
-
-//console log event listener for testing
-document.addEventListener("click", function (event) {
-    console.log(event.target);
-});

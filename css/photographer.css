@@ -3,9 +3,9 @@
     position: fixed;
     top: 0px;
     width: 100%;
-    background-color: #ffffffa6;
+    background-color: #ffffffed;
     height: 100%;
-    z-index: 2;
+    z-index: 444;
 }
 
 .photograph-header {
@@ -102,6 +102,8 @@ form input {
 .media-image {
     width: 350px;
     height: 300px;
+    border-radius: 5px;
+    overflow: hidden;
 }
 
 .media {
@@ -152,6 +154,11 @@ form input {
     height: 300px;
     object-fit: cover;
     border-radius: 5px;
+}
+.miniatureMedia:hover{
+    cursor: pointer;
+    transition: 1s;
+    transform: scale(1.5);
 }
 
 .mediaBody {
@@ -217,7 +224,7 @@ form input {
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 2;
+    z-index: 333;
     display: none;
 }
 
@@ -310,7 +317,23 @@ form input {
     margin-right: 20px;
 
 }
-
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+select {
+    appearance: none;
+    background-color: transparent;
+    border: none;
+    padding: 0 1em 0 0;
+    margin: 0;
+    width: 100%;
+    font-family: inherit;
+    font-size: inherit;
+    cursor: inherit;
+    line-height: inherit;
+  }
 .filterDropdown {
     position: absolute;
     background-color: #901C1C;
@@ -323,8 +346,12 @@ form input {
     text-align: left;
     color: white;
     border-radius: 5px;
-    width: 120px;
+    width: 170px;
     cursor: pointer;
+    background-image: url(../assets/icons/chevron-down.svg);
+    background-repeat: no-repeat;
+    background-position: 140px;
+    background-size: 20px;
 }
 
 .filterTitle {
@@ -381,7 +408,59 @@ form input {
 .mediaCard{
     padding:5px;
 }
-*:focus {
-    outline: 3px solid #901C1C;
+.filterDropdown>.filterOther{
+    background-color: #901C1C;
+    color: white;
     border-radius: 5px;
+    padding: 10px;
+    margin: 5px;
+    cursor: pointer;
+}
+.filterOption{
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    color: white;
+    justify-content: center;
+    padding: 20px;
+    cursor: pointer;
+    margin-left: 10px;
+    margin-right: 10px;
+    display: none;
+}
+
+
+.filterRight{
+    width:170px;
+    border-radius:5px;
+    background-color: #901C1C;
+    position: absolute;
+    margin-left: 100px;
+    z-index: 1;
+}
+.filterRight:hover .filterOption {
+    border-bottom: 1px solid white;
+    display: block;
+}
+
+.filterRight:focus .filterOption {
+    border-bottom: 1px solid white;
+    display: block;
+}
+
+.filterRight .filterOption:first-child {
+    display: block;
+    background-image: url(../assets/icons/chevron-down.svg);
+    background-repeat: no-repeat;
+    background-position: 120px;
+    background-size: 20px;
+}
+
+.filterRight:hover .filterOption:first-child {
+    background-image: url(../assets/icons/chevron-up.svg);
+    display: block;
+}
+
+.closeModal{
+    width: 50px;
 }

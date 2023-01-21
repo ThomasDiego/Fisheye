@@ -23,10 +23,10 @@
     </div>
     <div class="mediasFilter">
       <div class="filterLeft">Trier par</div>
-      <div class="filterRight">
-        <div class="filterDropdown" tabindex="0">
-          <div class="filterTitle" onclick="getFilters()">Date</div>
-        </div>
+      <div class="filterRight" tabindex="0">
+        <div class="filterOption" data-filter="date">Date</div>
+        <div class="filterOption" data-filter="top">Popularité</div>
+        <div class="filterOption" data-filter="title">Titre</div>
       </div>
     </div>
     <div class="media-section"></div>
@@ -44,7 +44,7 @@
     <div class="modal">
       <div class="modalHeader">
         <h2 class="contactTitle">Contactez-moi</h2>
-        <img src="assets/icons/close.svg" alt="Fermer la modal" onclick="closeModal()" />
+        <img class="closeModal" src="assets/icons/close.svg" alt="Fermer la modal" onclick="closeModal()" />
       </div>
       <form>
         <div class="contact">
