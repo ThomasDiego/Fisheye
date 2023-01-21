@@ -160,6 +160,9 @@ form input {
     transition: 1s;
     transform: scale(1.5);
 }
+.miniatureMedia:focus{
+    border:3px solid #901C1C;
+}
 
 .mediaBody {
     display: flex;

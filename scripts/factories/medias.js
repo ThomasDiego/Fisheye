@@ -13,7 +13,7 @@ class Media {
 
     getMediaThumbnail() {
         if (this.checkImageOrVideo() === "image") {
-            const html = ` <img tabindex="0" onclick="lightBox(${this.datas[0].id})" class="miniatureMedia" src="assets/medias/${this.datas[0].image}" alt="${this.datas[0].alt}"> `
+            const html = ` <img tabindex="0" onclick="lightBox(${this.datas[0].id})" class="miniatureMedia" src="assets/medias/${this.datas[0].image}" alt="${this.datas[0].title}"> `
             return html;
         } else if (this.checkImageOrVideo() === "video") {
             const html = ` <video tabindex="0" onclick="lightBox(${this.datas[0].id})" class="miniatureMedia" src="assets/medias/${this.datas[0].video}" type="video/mp4"></video> `
@@ -44,7 +44,7 @@ class Media {
             `
             <card class="media" data-id="${this.datas[0].id}">
             <div class="mediaHeader">
-            <div class="media-image" aria-label="${this.datas[0].alt}, closeup view">${this.getMediaThumbnail()}</div>
+            <div class="media-image" aria-label="${this.datas[0].title}, closeup view">${this.getMediaThumbnail()}</div>
             </div>
             <div class="mediaBody">
             <div class="mediaTitle">${this.datas[0].title}</div>
@@ -62,7 +62,7 @@ class Media {
 
     getLightBoxHtml() {
         if (this.checkImageOrVideo() === "image") {
-            const html = `<img class="lightBoxImg" src="assets/medias/${this.datas[0].image}" alt="${this.datas[0].alt}">`
+            const html = `<img class="lightBoxImg" src="assets/medias/${this.datas[0].image}" alt="${this.datas[0].title}">`
             return html
         } else if (this.checkImageOrVideo() === "video") {
             const html = `<video controls class="lightBoxImg" src="assets/medias/${this.datas[0].video}" type="video/mp4"></video>`
