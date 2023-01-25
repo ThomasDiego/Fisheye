@@ -29,18 +29,25 @@ async function getPhotographInfos() {
 async function displayMedias(medias) {
     const mediasSectionHtml = document.querySelector(".media-section")
     mediasSectionHtml.innerHTML = "";
-    let tabindex = 1;
     medias.forEach((media) => {
         //create element .mediaCard with data-id = media.id and apppend mediamodel.getHtml() to it
         const mediaCard = document.createElement("div");
         mediaCard.classList.add("mediaCard");
         mediaCard.setAttribute("data-id", media.id);
-        //add tabindex to mediaCard
-        tabindex++;
         const mediaModel = new Media(media);
         mediaCard.innerHTML = mediaModel.getHtml();
         mediasSectionHtml.appendChild(mediaCard);
         updateTotalLikesDiv();
+    });
+    ListenKeyboard();
+}
+function ListenKeyboard(){
+    document.querySelectorAll(".miniatureMedia").forEach((mediaCard) => {
+        mediaCard.addEventListener("keydown", (event) => {
+            if (event.key === "Enter") {
+                lightBox(mediaCard.parentNode.parentNode.parentNode.dataset.id);
+            }
+        });
     });
 }
 
@@ -76,6 +83,7 @@ function like(id) {
     mediaLike.like();
     mediaElement.innerHTML = mediaLike.getHtml();
     updateTotalLikesDiv()
+    ListenKeyboard()
 }
 function updateTotalLikesDiv() {
     const totalLikes = mediasList.reduce((total, media) => total + media.likes, 0);

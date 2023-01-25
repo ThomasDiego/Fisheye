@@ -446,8 +446,18 @@ select {
     display: block;
 }
 
+.filterRight:hover .filterOption:last-child {
+    border-bottom: none;
+    display: block;
+}
+
 .filterRight:focus .filterOption {
     border-bottom: 1px solid white;
+    display: block;
+}
+
+.filterRight:focus .filterOption:last-child {
+    border-bottom: none;
     display: block;
 }
 
