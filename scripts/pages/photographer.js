@@ -15,6 +15,7 @@ async function getPhotographInfos() {
     if(!photographer) {
         window.location.href = "./index.html";
     }
+    document.querySelector(".mediaStatsRight").innerHTML = photographer.price + "€ / jour";
     displayPhotographInfosCard(photographer);
     //changer le titre du contact modal
     const contactModalTitle = document.querySelector(".contactTitle");
@@ -87,7 +88,8 @@ function like(id) {
 }
 function updateTotalLikesDiv() {
     const totalLikes = mediasList.reduce((total, media) => total + media.likes, 0);
-    document.querySelector(".mediaStatsRight").innerHTML = totalLikes + "€ / jour";
+    //update .mediaStatsCount with totalLikes
+    document.querySelector(".mediaStatsCount").innerHTML = totalLikes;
 }
 
 document.querySelectorAll(".filterOption").forEach((filterOption) => {

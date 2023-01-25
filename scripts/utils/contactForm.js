@@ -1,8 +1,15 @@
 function displayModal() {
     const modal = document.getElementById("contact_modal");
-    //focus on the first input
-    document.getElementById("firstname").focus();
 	modal.style.display = "block";
+    document.getElementById("firstname").focus();
+    document.querySelector(".contact_submit").addEventListener("keydown", function(event){
+        if (event.key == "Tab") {
+            event.preventDefault();
+            console.log("ok")
+            document.getElementById("firstname").focus();
+        }
+    }
+    );
 }
 
 function closeModal() {
